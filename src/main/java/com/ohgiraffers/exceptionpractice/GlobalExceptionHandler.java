@@ -6,6 +6,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
+
+
+    @ExceptionHandler(inMinusMoney.class)
+    public String inMinusMoney(Model model,inMinusMoney exception) {
+        model.addAttribute("exception", exception);
+        return "error/inMinusMoney";
+    }
+
     @ExceptionHandler(OutUnderZeroException.class)
     public String outUnderZeroException(OutUnderZeroException exception){
 

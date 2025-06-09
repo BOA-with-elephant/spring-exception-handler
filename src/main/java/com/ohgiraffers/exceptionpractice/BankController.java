@@ -27,6 +27,14 @@ public class BankController {
 
     ;
 
+    @PostMapping("deposit")
+    public String checkDeposit(Model model, @RequestParam int price) {
+        if (price < 0) {
+            new GlobalExceptionHandler();
+        }
+        return "/";
+    }
+
     @GetMapping("withdraw")
     public void withdraw() {
     }
