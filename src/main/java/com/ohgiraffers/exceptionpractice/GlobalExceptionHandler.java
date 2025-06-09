@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
-
-
     @ExceptionHandler(OutUnderZeroException.class)
     public String outUnderZeroException(OutUnderZeroException exception){
 
@@ -21,5 +19,11 @@ public class GlobalExceptionHandler {
         model.addAttribute("exception", exception);
         return "error/inOverMoney";
     }
-    
+
+    @ExceptionHandler(OutOverRequestException.class)
+    public String outOverRequestException(Model model, OutOverRequestException exception){
+        System.out.println("전역 레벨 예외 처리");
+        model.addAttribute("exception", exception);
+        return "error/outOverException";
+    }
 }

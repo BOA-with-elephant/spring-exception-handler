@@ -1,6 +1,7 @@
 package com.ohgiraffers.exceptionpractice;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Service
 public class BankService {
@@ -11,10 +12,12 @@ public class BankService {
         this.accountDTO = accountDTO;
     }
 
+    public boolean checkAccount(int price) throws OutOverRequestException{
+        if (price > 0) {
+            throw new OutOverRequestException("잔고보다 출금요청액이 더 큽니다.");
+        }
 
-    public boolean checkAccount(int price){
-
-        return 0 <= accountDTO.getPrice() ;
+        return false;
     }
     public String depositInOverMoney(int depositMoney) throws InOverMoneyException{
 
