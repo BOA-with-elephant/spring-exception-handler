@@ -12,16 +12,12 @@ public class BankService {
         this.accountDTO = accountDTO;
     }
 
-    public void outOverException(int price) throws OutOverRequestException {
+    public boolean checkAccount(int price) throws OutOverRequestException{
         if (price > 0) {
             throw new OutOverRequestException("잔고보다 출금요청액이 더 큽니다.");
         }
-    }
 
-
-    public boolean checkAccount(int price){
-
-        return 0 <= accountDTO.getPrice() ;
+        return false;
     }
     public String depositInOverMoney(int depositMoney) throws InOverMoneyException{
 
