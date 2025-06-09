@@ -7,6 +7,13 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+
+    @ExceptionHandler(OutUnderZeroException.class)
+    public String outUnderZeroException(OutUnderZeroException exception){
+
+        return "error/outUnderZeroException";
+    }
+
     @ExceptionHandler(InOverMoneyException.class)
     public String inOverMoneyException(Model model, InOverMoneyException exception){
 
