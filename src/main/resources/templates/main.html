@@ -12,6 +12,15 @@
 
     <h5>입금</h5>
     <button onclick="location.href='bank/deposit'">입금</button>
+    <script>
+        const depositMessage = '[[${depositMessage}]]';
+
+        console.log(depositMessage);
+
+        if (depositMessage){
+            alert(depositMessage);
+        }
+    </script>
 
     <h5>출금</h5>
     <button onclick="location.href='bank/withdraw'">출금</button>
