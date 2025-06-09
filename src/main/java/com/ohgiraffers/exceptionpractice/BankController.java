@@ -22,24 +22,18 @@ public class BankController {
     }
 
     @GetMapping("deposit")
-    public void deposit() {
-    }
+    public void deposit() {}
 
-    ;
-
-    @PostMapping("deposit")
-    public String checkDeposit(Model model, @RequestParam int price) {
-        if (price < 0) {
-            new GlobalExceptionHandler();
-        }
-        return "/";
-    }
+//    @PostMapping("deposit")
+//    public String checkDeposit(Model model, @RequestParam int price) {
+//        if (price < 0) {
+//            new GlobalExceptionHandler();
+//        }
+//        return "/";
+//    }
 
     @GetMapping("withdraw")
-    public void withdraw() {
-    }
-
-    ;
+    public void withdraw() {}
 
 
     /* 예람 : 출금 요청 시, 클라이언트에서 입력 된 값을 @RequestParam으로 받는다.  */
@@ -75,10 +69,11 @@ public class BankController {
             mv.setViewName("redirect:/");
         } catch (InOverMoneyException e) {
             throw new RuntimeException(e);
+        } catch (inMinusMoney e) {
+            throw new RuntimeException(e);
         }
 
         return mv;
-
     }
 
 }
