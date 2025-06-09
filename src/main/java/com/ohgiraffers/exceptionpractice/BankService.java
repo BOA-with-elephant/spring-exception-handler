@@ -5,9 +5,16 @@ import org.springframework.stereotype.Service;
 @Service
 public class BankService {
 
+    private final AccountDTO accountDTO;
+
+    public BankService(AccountDTO accountDTO) {
+        this.accountDTO = accountDTO;
+    }
+
+
     public boolean checkAccount(int price){
 
-        return price <= 50000 ;
+        return 0 <= accountDTO.getPrice() ;
     }
 
 }
